@@ -1,0 +1,277 @@
+/* ========================================
+   FILE: css/responsive.css
+   PURPOSE: Tablet and desktop overrides
+            for layout, navigation, forms,
+            cards, and page-specific sections.
+   ======================================== */
+
+@media (min-width: 481px) and (max-width: 768px) {
+  .hero,
+  .index-hero {
+    min-height: 100vh;
+    padding: 1rem;
+  }
+
+  .hero h1,
+  .index-hero .logo {
+    font-size: 3.5rem;
+  }
+
+  .hero p,
+  .index-hero p {
+    font-size: 1.2rem;
+    max-width: 90%;
+  }
+
+  header {
+    padding: 0.5rem 0;
+  }
+
+  nav {
+    padding: 0 0.5rem;
+  }
+
+  header .logo {
+    font-size: 1.8rem;
+  }
+
+  .nav-links a {
+    font-size: 1.1rem;
+  }
+
+  section {
+    padding: 2rem 0;
+  }
+
+  section.container {
+    margin-top: 120px;
+  }
+
+  .container {
+    padding: 0 0.5rem;
+  }
+
+  .card img {
+    height: 250px;
+  }
+
+  .amenities {
+    padding: 1.5rem;
+  }
+
+  .parchment-scroll {
+    padding: 25px 20px 40px;
+    border-width: 10px;
+    border-radius: 12px;
+    max-width: 95%;
+  }
+
+  .parchment-scroll::before,
+  .parchment-scroll::after {
+    width: 70px;
+    height: 35px;
+  }
+
+  .parchment-scroll::before { top: -15px; }
+  .parchment-scroll::after { bottom: -15px; }
+
+  .form-grid-dates {
+    gap: 1rem;
+  }
+
+  .scroll-btn {
+    padding: 0.8rem 2rem !important;
+    font-size: 1.2rem;
+  }
+
+  .btn {
+    padding: 0.8rem 1.5rem;
+  }
+}
+
+@media (min-width: 769px) {
+  .hero,
+  .index-hero {
+    min-height: 100vh;
+    padding: 2rem;
+  }
+
+  .index-hero {
+    background-attachment: fixed;
+  }
+
+  .index-hero::before {
+    background: rgba(11, 15, 10, 0.55);
+  }
+
+  .hero h1,
+  .index-hero .logo {
+    font-size: 5.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .hero p,
+  .index-hero p {
+    font-size: 1.6rem;
+    margin: 1rem auto 2rem;
+    max-width: 700px;
+  }
+
+  header {
+    background: transparent;
+    padding: 1rem 0;
+  }
+
+  nav {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 0;
+    padding: 0 1rem;
+  }
+
+  header .logo {
+    font-size: 2rem;
+  }
+
+  .hamburger {
+    display: none !important;
+  }
+
+  .nav-links {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 2rem !important;
+    width: auto !important;
+    position: static !important;
+    background: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+  }
+
+  .nav-links a {
+    display: inline-block;
+    padding: 0;
+  }
+
+  section {
+    padding: 4rem 0;
+  }
+
+  section.container {
+    margin-top: 80px;
+  }
+
+  .container {
+    padding: 0 1rem;
+  }
+
+  .card-grid {
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+
+  .amenities ul {
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+
+  .amenities li {
+    justify-content: flex-start;
+  }
+
+  .room-page .card-grid {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .room-page .card {
+    flex: 1 1 300px;
+    max-width: 400px;
+  }
+
+  .parchment-scroll {
+    max-width: 800px;
+    margin: 3rem auto;
+    padding: 40px 30px 60px;
+    border-width: 15px;
+    border-radius: 15px;
+  }
+
+  .parchment-scroll::before,
+  .parchment-scroll::after {
+    width: 100px;
+    height: 50px;
+  }
+
+  .parchment-scroll::before { top: -25px; }
+  .parchment-scroll::after { bottom: -25px; }
+
+  .form-grid-dates {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  .scroll-btn {
+    padding: 1rem 2.5rem !important;
+    font-size: 1.3rem;
+    margin: 2rem auto 0;
+  }
+
+  .btn {
+    display: inline-block;
+    width: auto;
+    padding: 1rem 2.5rem;
+    margin: 0.5rem;
+  }
+
+  footer {
+    padding: 3rem 0;
+    font-size: 1rem;
+  }
+}
+
+/* ===============================
+   MOBILE NAVIGATION
+   =============================== */
+
+.hamburger {
+  display: none;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  color: #00ffe0;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    gap: 1rem;
+    padding: 1rem 0;
+  }
+
+  .nav-links.nav-open {
+    display: flex;
+  }
+
+  .navbar {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 768px) {
+  .store-hero {
+    padding: 3rem 1rem 2rem;
+  }
+
+  .store-hero .realm-title {
+    font-size: 2.2rem;
+    line-height: 1.2;
+  }
+}

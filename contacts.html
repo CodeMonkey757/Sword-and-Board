@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact – Sword & Board</title>
+
+    <!-- ========================================
+       FILE: contacts.html
+       PURPOSE: Contact/booking form page allowing users to send a "raven"
+                with name, email, arrival/departure dates, and message.
+                Includes phone number and footer navigation.
+       ======================================== -->
+
+    <!-- Google Fonts – Lora (body) + Cinzel Decorative (logo) + fallback Cinzel -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Cinzel:wght@400;700;900&family=Cinzel+Decorative:wght@700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- External stylesheets -->
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/layout.css" />
+    <link rel="stylesheet" href="css/raven.css" />
+    <link rel="stylesheet" href="css/component.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+    <script src="js/common.js" defer></script>
+    <script src="js/ravenform.js" defer></script>
+
+    <!-- Favicon – appears in browser tab -->
+    <link rel="icon" href="images/favicon.svg" type="image/svg+xml" />
+  </head>
+
+  <body>
+    <!-- ========================================
+       SECTION: Navigation Header
+       PURPOSE: Reusable top nav with logo, hamburger menu (mobile), and site links.
+                Highlights current page ("Send Raven").
+       ======================================== -->
+    <header>
+      <nav class="container">
+        <a href="index.html" class="logo">Sword & Board</a>
+        <button class="hamburger" aria-label="Toggle menu">☰</button>
+        <div class="nav-links" id="nav-links">
+          <a href="index.html">Home</a>
+          <a href="rooms/rangersroost.html">Ranger's Roost</a>
+          <a href="rooms/wizardstower.html">Wizard's Tower</a>
+          <a href="events/events.html">Events</a>
+          <a href="contacts.html">Send Raven</a>
+          <a href="calculator.html">Pricing</a>
+          <a href="ratings.html">Ratings</a>
+          <a href="store.html">The Arcanium</a>
+        </div>
+      </nav>
+    </header>
+
+    <!-- ========================================
+       SECTION: Send a Raven – Parchment Scroll Form
+       PURPOSE: Fantasy-themed contact form styled as a parchment scroll.
+       ======================================== -->
+    <section class="container">
+      <h2 class="text-center" style="font-size: 3.5rem; margin-bottom: 2rem">
+        Send a Raven
+      </h2>
+
+      <!-- ============================= -->
+      <!-- 📜 BEGIN PARCHMENT SCROLL 📜 -->
+      <!-- A message prepared for winged delivery -->
+      <!-- ============================= -->
+      <div class="parchment-scroll" id="scroll-shell">
+        <!-- 🧵 Top Roll of the Scroll -->
+        <div class="scroll-roll top-roll"></div>
+
+        <!-- ✍️ The Message Form (ink meets intent) -->
+        <form id="contact-form" class="raven-form">
+          <!-- 🧙 Adventurer Identity -->
+          <div class="form-group">
+            <label for="adventurer-name">Adventurer Name</label>
+            <input
+              id="adventurer-name"
+              type="text"
+              required
+              placeholder="e.g. Elowen Starfall"
+            />
+          </div>
+
+          <!-- 🔮 Scrying Contact -->
+          <div class="form-group">
+            <label for="raven-email">Email (or scrying orb address)</label>
+            <input
+              id="raven-email"
+              type="email"
+              required
+              placeholder="traveler@realm.adventurer"
+            />
+          </div>
+
+          <!-- 🌙 Passage Through Time -->
+          <div class="form-grid-dates">
+            <div class="form-group">
+              <label for="arrival-date">Arrival under the Moon</label>
+              <input id="arrival-date" type="date" required />
+            </div>
+
+            <div class="form-group">
+              <label for="departure-date">Departure at Dawn</label>
+              <input id="departure-date" type="date" required />
+            </div>
+          </div>
+
+          <!-- 🪶 The Written Message -->
+          <div class="form-group">
+            <label for="raven-message">
+              Your Message (written in ink or blood)
+            </label>
+            <textarea
+              id="raven-message"
+              rows="8"
+              required
+              placeholder="Hail, keepers of Sword & Board..."
+            ></textarea>
+          </div>
+
+          <!-- 🕯️ Seal & Dispatch -->
+          <button type="submit" class="scroll-btn">
+            ✦ Seal &amp; Send Raven ✦
+          </button>
+        </form>
+
+        <!-- 🧵 Bottom Roll of the Scroll -->
+        <div class="scroll-roll bottom-roll"></div>
+
+        <!-- 🎀 Ribbon Binding (appears later) -->
+        <div class="scroll-ribbon" aria-hidden="true"></div>
+
+        <!-- 🔴 Wax Seal (stamped upon completion) -->
+        <div class="wax-seal" aria-hidden="true">✦</div>
+      </div>
+
+      <!-- ============================= -->
+      <!-- 🐦 END SCROLL – Awaiting Raven -->
+      <!-- ============================= -->
+
+      <!-- 🐦 Raven Flight Stage (hidden until summoned) -->
+      <div class="raven-flight" id="raven-flight" aria-hidden="true">
+        <span class="raven-icon">🐦‍⬛</span>
+      </div>
+
+      <!-- ✉️ Final Confirmation Message -->
+      <div id="raven-confirmation" class="raven-confirmation">
+        <h3>Your raven has taken flight.</h3>
+        <p>
+          Thank you for your reservation. A reply shall return by wing and wind.
+        </p>
+      </div>
+
+      <!-- 📞 Emergency Contact -->
+      <p class="text-center" style="margin-top: 3rem; font-size: 1.1rem">
+        Emergency quest line: <a href="tel:+15557837801">+1 (555) QUEST-01</a>
+      </p>
+    </section>
+
+    <!-- ========================================
+       SECTION: Footer
+       PURPOSE: Copyright, developer credit, and "Back to Home" link.
+       ======================================== -->
+    <footer>
+      <div class="container">
+        <p><a href="index.html">Back to Home</a></p>
+      </div>
+      Copyright &copy; 2025<br />
+      <a href="mailto:mcray22@amarillocollege.com">Michael Ray</a>
+    </footer>
+
+    <!-- ========================================
+       PROJECT MAP (dev reference – safe to remove in production)
+       project_mray/
+       ├── ratings.html
+       ├── index.html
+       ├── contacts.html ← You are here
+       ├── calculator.html
+       ├── css/
+       │   ├── base.css
+       │   ├── layout.css
+       │   ├── raven.css
+       │   └── responsive.css
+       ├── events/
+       │   └── events.html
+       ├── images/
+       │   └── logo.gif
+       │   └── scenery.jpg
+       ├── rooms/
+       │   └── rangersroost.html
+       │   └── wizardstower.html
+       ├── screenshots/
+       └── structure.txt
+       ======================================== -->
+    <script src="js/script.js"></script>
+    <script src="js/ravenform.js"></script>
+  </body>
+</html>

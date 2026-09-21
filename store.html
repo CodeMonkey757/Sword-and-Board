@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sword & Board Arcanium</title>
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/layout.css" />
+    <link rel="stylesheet" href="css/component.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+    <link rel="stylesheet" href="css/store.css" />
+    <script src="js/common.js" defer></script>
+    <script src="js/cart-data.js" defer></script>
+    <script src="js/store.js" defer></script>
+  </head>
+  <body onload="displayProducts()">
+    <header>
+      <div class="container header-row">
+      <nav class="container">
+        <div class="logo">Sword & Board</div>
+        <button class="hamburger" aria-label="Toggle menu">☰</button>
+        <div class="nav-links" id="nav-links">
+          <a href="index.html">Home</a>
+          <a href="rooms/rangersroost.html">Ranger's Roost</a>
+          <a href="rooms/wizardstower.html">Wizard's Tower</a>
+          <a href="events/events.html">Events</a>
+          <a href="contacts.html">Send Raven</a>
+          <a href="calculator.html">Pricing</a>
+          <a href="ratings.html">Ratings</a>
+          <a href="store.html">The Arcanium</a>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container">
+      <section class="store-hero realm-section">
+        <h1 class="realm-title">The Arcanium</h1>
+        <h2>Mystic's Supply</h2>
+        <p class="realm-subtitle">
+          Select options for an item, choose a quantity, and add it to the cart.
+        </p>
+
+        <div class="store-actions">
+          <a href="cart.html" class="scroll-btn">View Cart</a>
+          <a href="checkout.html" class="scroll-btn">Checkout</a>
+        </div>
+      </section>
+
+      <section id="product-list" class="product-grid"></section>
+    </main>
+  </body>
+</html>

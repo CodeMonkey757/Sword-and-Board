@@ -1,0 +1,346 @@
+/* ========================================
+   FILE: css/raven.css
+   PURPOSE: Shared form styles plus
+            Send a Raven parchment scroll
+            and future animation-ready pieces.
+   ======================================== */
+
+/* Shared form foundation */
+.raven-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.raven-form label {
+  display: block;
+  font-weight: 700;
+  margin-bottom: 0.35rem;
+}
+
+.raven-form input,
+.raven-form textarea,
+.raven-form select {
+  width: 100%;
+  font-family: 'Lora', serif;
+  padding: 0.9rem 1rem;
+  border-radius: 10px;
+  font-size: 1rem;
+}
+
+.raven-form textarea {
+  resize: vertical;
+}
+
+/* Parchment scroll shell */
+.parchment-scroll {
+  max-width: 95%;
+  margin: 1rem auto;
+  background: url('../images/parchment.jpg') center/cover;
+  background-color: #f4e9d8;
+  border-radius: 15px;
+  padding: 20px 15px 40px;
+  box-shadow:
+    0 15px 30px rgba(0,0,0,0.5),
+    inset 0 0 40px rgba(139, 94, 60, 0.2);
+  position: relative;
+  border: 10px solid #8b6f47;
+  border-image: url('../images/runeborder.jpg') 20 round;
+}
+
+.parchment-scroll::before,
+.parchment-scroll::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  width: 70px;
+  height: 35px;
+  background: linear-gradient(to bottom, #3e2c1a 0%, #5d4037 100%);
+  border-radius: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0 8px 15px rgba(0,0,0,0.6);
+  z-index: -1;
+}
+
+.parchment-scroll::before { top: -15px; }
+.parchment-scroll::after { bottom: -15px; }
+
+/* Send a Raven specific form look */
+.parchment-scroll .raven-form label {
+  color: #3e2c1a;
+  font-size: 1.1rem;
+  text-shadow: 1px 1px 0 #fff;
+}
+
+.parchment-scroll .raven-form input,
+.parchment-scroll .raven-form textarea {
+  background: rgba(255,248,220,0.8);
+  border: 2px solid #8b6f47;
+  color: #3e2c1a;
+  margin-bottom: 1rem;
+}
+
+.parchment-scroll .raven-form input:focus,
+.parchment-scroll .raven-form textarea:focus {
+  outline: none;
+  border-color: #00ffcc;
+  box-shadow: 0 0 15px rgba(0,255,204,0.4);
+  background: rgba(255,255,255,0.95);
+}
+
+.form-grid-dates {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.scroll-btn {
+  background: #5d4037;
+  color: #f4e9d8;
+  font-size: 1.2rem;
+  padding: 0.8rem 2rem !important;
+  margin: 2rem auto 0;
+  display: block;
+  box-shadow: 0 0 15px rgba(0,255,204,0.5);
+  border-radius: 6px;
+}
+
+.scroll-btn:hover {
+  background: #00ffcc !important;
+  color: #0b0f0a !important;
+  transform: scale(1.02);
+}
+
+
+
+/* ========================================
+   TEMP SUBMIT STATE
+   PURPOSE: Proof that JS is firing correctly
+   ======================================== */
+
+.parchment-scroll.is-submitted {
+  box-shadow:
+    0 0 30px rgba(0, 255, 204, 0.35),
+    0 15px 30px rgba(0, 0, 0, 0.5),
+    inset 0 0 40px rgba(139, 94, 60, 0.2);
+}
+
+
+
+/* ========================================
+   SCROLL SUBMIT ANIMATION (PHASE 1)
+   ======================================== */
+
+.parchment-scroll.is-submitted {
+  transform: scale(0.98);
+  transition: all 0.4s ease;
+  box-shadow:
+    0 0 40px rgba(0, 255, 204, 0.5),
+    0 20px 40px rgba(0, 0, 0, 0.6);
+}
+
+/* ========================================
+   SCROLL ROLL-UP ANIMATION (PHASE 2 TEST)
+   ======================================== */
+
+.parchment-scroll {
+  transition:
+    transform 0.8s ease-in-out,
+    opacity 0.4s ease,
+    box-shadow 0.4s ease;
+  transform-origin: center center;
+}
+
+.parchment-scroll.is-rolling {
+  transform: scaleY(0.15);
+  overflow: hidden;
+}
+
+.parchment-scroll.is-rolling .raven-form {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+
+/* ========================================
+   RIBBON + SEAL (PHASE 3)
+   ======================================== */
+
+.scroll-ribbon {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 110%;
+  height: 30px;
+  background: linear-gradient(to right, #5b1f1f, #8b2f2f, #5b1f1f);
+  transform: translate(-50%, -50%);
+  border-radius: 6px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.35);
+  z-index: 5;
+}
+
+.wax-seal {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(circle at 30% 30%, #b22222, #7a0f0f);
+  color: #f4e4bc;
+  font-size: 1.75rem;
+  font-weight: bold;
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow:
+    0 0 18px rgba(0, 0, 0, 0.45),
+    inset 0 2px 8px rgba(255, 255, 255, 0.15);
+  z-index: 6;
+}
+
+/* Show ribbon */
+.parchment-scroll.has-ribbon .scroll-ribbon {
+  display: block;
+}
+
+/* Show seal with pop-in effect */
+.parchment-scroll.has-seal .wax-seal {
+  display: flex;
+  animation: sealStamp 0.45s ease-out forwards;
+}
+
+@keyframes sealStamp {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+  }
+  70% {
+    transform: translate(-50%, -50%) scale(1.18);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+.raven-flight {
+  display: none;
+  position: fixed;
+  left: 50%;
+  top: 42%;
+  transform: translate(-50%, -50%);
+  z-index: 20;
+  font-size: 3rem;
+}
+
+.raven-flight.is-flying {
+  display: block;
+  animation: ravenFlyAway 2.2s ease-in forwards;
+}
+
+@keyframes ravenFlyAway {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+  20% {
+    transform: translate(-35%, -55%) scale(1.05);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(420px, -260px) scale(0.5);
+    opacity: 0;
+  }
+}
+
+/* ========================================
+   FINAL SCROLL SHRINK (RAVEN PICKUP)
+   ======================================== */
+
+.parchment-scroll.is-picked-up {
+  animation: scrollShrink 0.8s ease-in forwards;
+}
+
+@keyframes scrollShrink {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  60% {
+    transform: scale(0.5);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.25) translateY(-40px);
+    opacity: 0;
+  }
+}
+
+/* ========================================
+   FINAL CONFIRMATION PANEL
+   ======================================== */
+
+.raven-confirmation {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 999;
+
+  max-width: 520px;
+  width: 90%;
+  padding: 1.5rem 2rem;
+
+  background: rgba(20, 15, 10, 0.95);
+  border: 2px solid #8b6f47;
+  border-radius: 12px;
+  text-align: center;
+  color: #f4e9d8;
+
+  box-shadow:
+    0 0 25px rgba(0, 255, 204, 0.3),
+    0 10px 30px rgba(0, 0, 0, 0.6);
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  transform: translate(-50%, -40%);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease,
+    visibility 0.8s ease;
+}
+
+.raven-confirmation.show {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translate(-50%, -50%);
+}
+
+.raven-confirmation h3 {
+  font-family: 'Cinzel Decorative', serif;
+  margin-bottom: 0.5rem;
+  color: #00ffcc;
+}
+
+.raven-confirmation.show {
+  animation:
+    revealMessage 0.8s ease forwards,
+    glowPulse 2.5s ease-in-out infinite alternate;
+}
+
+@keyframes glowPulse {
+  from {
+    box-shadow:
+      0 0 20px rgba(0,255,204,0.25),
+      0 10px 30px rgba(0,0,0,0.6);
+  }
+  to {
+    box-shadow:
+      0 0 35px rgba(0,255,204,0.5),
+      0 10px 30px rgba(0,0,0,0.6);
+  }
+}

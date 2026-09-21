@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <!-- Dark shield background -->
+  <rect width="32" height="32" rx="4" fill="#1A3C34"/>
+  <!-- Red d20 circle -->
+  <circle cx="16" cy="16" r="12" fill="#D94F20"/>
+  <!-- White "20" text with glow -->
+  <defs>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="1" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <text x="16" y="20" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="14" font-weight="bold" filter="url(#glow)">20</text>
+</svg>
+
+<!-- So I got mad while beating my head against the wall for making this favicon. eventually when not getting what I wanted out of it I asked Grok to help me get a usable scalable icon that didnt get fuzzy when stretched. Grok led me to this structure of an SVG file where it helped me build what I wanted for this Project.-->

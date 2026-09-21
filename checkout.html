@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shipping Information</title>
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/layout.css" />
+    <link rel="stylesheet" href="css/component.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+    <link rel="stylesheet" href="css/checkout.css" />
+    <script src="js/common.js"></script>
+    <script src="js/cart-data.js"></script>
+    <script src="js/checkout.js"></script>
+  </head>
+  <body onload="initShippingPage()">
+    <header>
+      <nav class="container">
+        <div class="logo">Sword & Board</div>
+        <button class="hamburger" aria-label="Toggle menu">☰</button>
+        <div class="nav-links" id="nav-links">
+          <a href="index.html">Home</a>
+          <a href="rooms/rangersroost.html">Ranger's Roost</a>
+          <a href="rooms/wizardstower.html">Wizard's Tower</a>
+          <a href="events/events.html">Events</a>
+          <a href="contacts.html">Send Raven</a>
+          <a href="calculator.html">Pricing</a>
+          <a href="ratings.html">Ratings</a>
+          <a href="store.html">The Arcanium</a>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container shipping-layout">
+      <section class="shipping-card">
+        <h1>Dispatch Details</h1>
+        <p class="shipping-intro">
+          Enter your delivery information so the Arcanium can prepare your order
+          for its journey.
+        </p>
+        <form id="shipping-form">
+          <label for="fullName">Adventurer Name</label>
+          <input type="text" id="fullName" required />
+
+          <label for="address">Guild Address</label>
+          <input type="text" id="address" required />
+
+          <label for="city">Region</label>
+          <input type="text" id="city" required />
+
+          <label for="state">Province</label>
+          <input type="text" id="state" required />
+
+          <label for="zipCode">Rune Code</label>
+          <input type="text" id="zipCode" required />
+
+          <label for="notes">Raven's Instructions</label>
+          <textarea id="notes" rows="4"></textarea>
+
+          <div class="shipping-actions">
+            <a href="cart.html" class="action-button secondary-button"
+              >Return to Satchel</a
+            >
+
+            <button type="submit" class="action-button primary-button">
+              Confirm Dispatch
+            </button>
+          </div>
+        </form>
+
+        <div id="shipping-message"></div>
+      </section>
+
+      <section class="summary-card">
+        <h2>Ledger Of Goods</h2>
+        <div id="shipping-summary"></div>
+      </section>
+    </main>
+  </body>
+</html>

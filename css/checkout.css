@@ -1,0 +1,121 @@
+/* =====================================================
+   FILE: css/checkout.css
+   PURPOSE: Styling for checkout/shipping page layout,
+            form, and order summary
+===================================================== */
+
+
+/* ===== LAYOUT ===== */
+
+.shipping-layout {
+  max-width: 1100px;
+  margin: 2rem auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+
+/* ===== FORM CARD ===== */
+
+.shipping-card,
+.summary-card {
+  padding: 1.5rem;
+  border-radius: 10px;
+  border: 1px solid rgba(185,139,115,0.3);
+  background: rgba(20, 25, 20, 0.6);
+  backdrop-filter: blur(4px);
+}
+
+.shipping-card {
+    max-width: none;
+    margin: 0 auto;
+}
+
+.summary-card{
+    position: sticky;
+    top: 100px;
+}
+
+
+/* ===== HEADINGS ===== */
+
+.shipping-card h1,
+.shipping-card h2,
+.summary-card h2 {
+  color: #00ffe0;
+  text-shadow: 0 0 6px rgba(0,255,200,0.4);
+  margin-bottom: 1rem;
+}
+
+
+/* ===== FORM FIELDS ===== */
+
+#shipping-form label {
+  display: block;
+  margin-top: 1rem;
+  color: #fff7d6;
+  font-weight: bold;
+}
+
+#shipping-form input,
+#shipping-form textarea {
+  width: 100%;
+  padding: 0.7rem;
+  margin-top: 0.35rem;
+  border-radius: 6px;
+  border: 2px solid #b98b73;
+  background: #1b1b1b;
+  color: #fff7d6;
+}
+
+#shipping-form input:focus,
+#shipping-form textarea:focus {
+  outline: none;
+  border-color: #00ffe0;
+  box-shadow: 0 0 8px rgba(0,255,200,0.4);
+}
+
+/* ===== BUTTONS ===== */
+
+.shipping-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.primary-button,
+.secondary-button {
+  display: inline-block;
+  padding: 0.8rem 1.4rem;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.primary-button {
+  background: #6b4638;
+  color: #fff7d6;
+  border: 2px solid #b98b73;
+}
+
+.secondary-button {
+  background: rgba(0, 0, 0, 0.55);
+  color: #fff7d6;
+  border: 2px solid #00ffe0;
+}
+
+.primary-button:hover,
+.secondary-button:hover {
+  transform: scale(1.05);
+  box-shadow:
+    0 0 8px rgba(0,255,200,0.6),
+    0 0 16px rgba(0,255,200,0.4),
+    0 0 24px rgba(0,255,200,0.2);
+  color: #00ffe0;
+}

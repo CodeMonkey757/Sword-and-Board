@@ -1,0 +1,147 @@
+/* ===== CART PAGE LAYOUT ===== */
+
+.cart-page {
+  max-width: 800px;
+  margin: 2rem auto;
+}
+
+#cart-area {
+  max-width: 700px;
+  margin: 2rem auto;
+}
+
+/* ===== CART CARD ===== */
+
+.cart-card {
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 215, 0, 0.25);
+  border-radius: 10px;
+  padding: 1.5rem;
+  margin-bottom: 1.25rem;
+  text-align: center;
+}
+
+.cart-card h2 {
+  color: #00ffe0;
+  margin-bottom: 1rem;
+}
+
+.cart-row {
+  margin: 0.4rem 0;
+}
+
+.cart-item-title {
+  color: #fff7d6;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.total-box {
+  margin-top: 2rem;
+  padding: 1.25rem;
+  text-align: center;
+  font-size: 1.3rem;
+  color: #fff7d6;
+  border-top: 1px solid rgba(255, 215, 0, 0.35);
+}
+
+/* ===== CART PAGE LAYOUT ===== */
+
+.cart-page {
+  max-width: 800px;
+  margin: 2rem auto;
+}
+
+#cart-area {
+  max-width: 700px;
+  margin: 2rem auto;
+}
+
+/* ===== CART CARD ===== */
+
+.cart-card {
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 215, 0, 0.25);
+  border-radius: 10px;
+  padding: 1.5rem;
+  margin-bottom: 1.25rem;
+  text-align: center;
+}
+
+.cart-card h2,
+.intro-card h1 {
+  color:#00ffe0;
+  margin-bottom: 1rem;
+}
+
+.cart-row {
+  margin: 0.4rem 0;
+}
+
+.cart-item-title {
+  color: #fff7d6;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.total-box {
+  margin-top: 2rem;
+  padding: 1.25rem;
+  text-align: center;
+  font-size: 1.3rem;
+  color: #fff7d6;
+  border-top: 1px solid rgba(255, 215, 0, 0.35);
+}
+
+/* ===== CART PAGE ACTION BUTTONS ===== */
+
+.cart-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.cart-actions .btn,
+.primary-button,
+.remove-button {
+  display: inline-block;
+  padding: 0.75rem 1.3rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    color 0.2s ease;
+}
+
+.primary-btn,
+.primary-button {
+  background: #6b4638;
+  color: #fff7d6;
+  border: 2px solid #b98b73;
+}
+
+.secondary-btn {
+  background: rgba(0, 0, 0, 0.55);
+  color: #fff7d6;
+  border: 2px solid #00ffe0;
+}
+
+.remove-button {
+  background: #4a1f2a;
+  color: #fff7d6;
+  border: 2px solid #b98b73;
+  margin-top: 0.8rem;
+}
+
+.cart-actions .btn:hover,
+.primary-button:hover,
+.remove-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 12px rgba(0, 255, 200, 0.55);
+  color: #00ffe0;
+}

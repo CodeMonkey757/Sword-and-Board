@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sword & Board Arcanium</title>
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/layout.css" />
+    <link rel="stylesheet" href="css/component.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+    <link rel="stylesheet" href="css/cart.css" />
+    <script src="js/common.js"></script>
+    <script src="js/cart-data.js"></script>
+    <script src="js/cart.js"></script>
+  </head>
+  <body onload="displayCartPage()">
+    <header>
+      <nav class="container">
+        <div class="logo">Sword & Board</div>
+
+        <button class="hamburger" aria-label="Toggle menu">☰</button>
+
+        <div class="nav-links" id="nav-links">
+          <a href="index.html">Home</a>
+          <a href="rooms/rangersroost.html">Ranger's Roost</a>
+          <a href="rooms/wizardstower.html">Wizard's Tower</a>
+          <a href="events/events.html">Events</a>
+          <a href="contacts.html">Send Raven</a>
+          <a href="calculator.html">Pricing</a>
+          <a href="ratings.html">Ratings</a>
+          <a href="store.html">The Arcanium</a>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container cart-page">
+      <section class="intro-card">
+        <h1>Adventurer’s Satchel</h1>
+        <p>
+          Review your chosen relics, gear, and supplies before proceeding to dispatch.
+        </p>
+
+        <div class="cart-actions">
+          <a class="btn secondary-btn" href="store.html">Return to Arcanium</a>
+          <a class="btn primary-btn" href="checkout.html">Proceed to Dispatch</a>
+        </div>
+      </section>
+
+  <section id="cart-area"></section>
+</main>
+    </main>
+  </body>
+</html>

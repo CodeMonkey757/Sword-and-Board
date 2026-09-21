@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wizard's Tower - Sword & Board</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Cinzel:wght@400;700;900&family=Cinzel+Decorative:wght@700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Modular CSS -->
+    <link rel="stylesheet" href="../css/base.css" />
+    <link rel="stylesheet" href="../css/layout.css" />
+    <link rel="stylesheet" href="../css/component.css" />
+    <link rel="stylesheet" href="../css/responsive.css" />
+    <script src="../js/common.js" defer></script>
+    <script src="../js/gallery.js" defer></script>
+
+    <!-- Favicon -->
+    <link rel="icon" href="../images/favicon.svg" type="image/svg+xml" />
+  </head>
+
+  <body class="wizard-page">
+    <!-- NAVIGATION -->
+    <header>
+      <nav class="container">
+        <a href="../index.html" class="logo">Sword & Board</a>
+        <button class="hamburger" aria-label="Toggle menu">☰</button>
+        <div class="nav-links" id="nav-links">
+          <a href="../index.html">Home</a>
+          <a href="../rooms/rangersroost.html">Ranger's Roost</a>
+          <a href="../rooms/wizardstower.html">Wizard's Tower</a>
+          <a href="../events/events.html">Events</a>
+          <a href="../contacts.html">Send Raven</a>
+          <a href="../calculator.html">Pricing</a>
+          <a href="../ratings.html">Ratings</a>
+          <a href="../store.html">The Arcanium</a>
+        </div>
+      </nav>
+    </header>
+
+    <!-- HERO -->
+    <section
+      class="hero wizard-tower"
+      style="background-image: url(&quot;../images/wizard1.jpg&quot;)"
+    >
+      <div class="hero-content">
+        <div class="hero-inner text-center">
+          <h1>Wizard’s Tower</h1>
+          <p>From $200/night</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ROOM DETAILS + GALLERY -->
+    <section class="container">
+      <div class="card-grid">
+        <div class="card">
+          <h2>Wizard’s Tower Gallery</h2>
+
+          <div class="photo-gallery">
+            <img
+              id="main-wizard-image"
+              class="main-gallery-image"
+              src="../images/wizard1.jpg"
+              alt="Arcane bedchamber with glowing runes"
+            />
+
+            <div class="gallery-description">
+              <h3 id="wizard-image-title">Arcane Bedchamber</h3>
+              <p id="wizard-image-text">
+                A mystical sleeping space wrapped in enchanted light, ancient
+                symbols, and the quiet promise of midnight study.
+              </p>
+            </div>
+
+            <div class="thumbnail-row">
+              <img
+                src="../images/wizard1.jpg"
+                alt="Arcane bedchamber with glowing runes"
+                data-title="Arcane Bedchamber"
+                data-description="A mystical sleeping space wrapped in enchanted light, ancient symbols, and the quiet promise of midnight study."
+                onclick="changeWizardImage(this)"
+                class="active-thumbnail"
+              />
+              <img
+                src="../images/wizard2.jpg"
+                alt="Spellbound reading corner"
+                data-title="Spellbound Reading Corner"
+                data-description="A cozy corner for tomes, quiet study, and late-night planning before the next grand adventure."
+                onclick="changeWizardImage(this)"
+              />
+              <img
+                src="../images/wizard3.jpg"
+                alt="Alchemy-inspired interior"
+                data-title="Alchemy Chamber"
+                data-description="This view captures the tower’s potion-lab energy, blending mystery, comfort, and arcane atmosphere."
+                onclick="changeWizardImage(this)"
+              />
+              <img
+                src="../images/wizard4.jpg"
+                alt="Enchanted tower decor"
+                data-title="Enchanted Decor"
+                data-description="Glowing accents and magical details give the room its signature neon-gothic fantasy identity."
+                onclick="changeWizardImage(this)"
+              />
+              <img
+                src="../images/wizard5.jpg"
+                alt="Mage’s rest space"
+                data-title="Mage’s Rest"
+                data-description="A resting place fit for a traveling spellcaster, balancing elegance, warmth, and mystic ambiance."
+                onclick="changeWizardImage(this)"
+              />
+              <img
+                src="../images/wizard6.jpg"
+                alt="Wizard tower showcase"
+                data-title="Tower Showcase"
+                data-description="A full showcase of the Wizard’s Tower experience, where immersive fantasy meets stylish comfort."
+                onclick="changeWizardImage(this)"
+              />
+            </div>
+          </div>
+
+          <div class="card-body">
+            <ul>
+              <li>Spellbook library & dice tower</li>
+              <li>King bed with starlight ceiling</li>
+              <li>Private bath with rain shower</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="container">
+        <p><a href="../index.html">Back to Home</a></p>
+      </div>
+      Copyright &copy; 2025<br />
+      <a href="mailto:mcray22@amarillocollege.com">Michael Ray</a>
+    </footer>
+
+    <script src="../js/script.js"></script>
+  </body>
+</html>

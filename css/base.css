@@ -1,0 +1,74 @@
+/* ========================================
+   FILE: css/base.css
+   PURPOSE: Global reset, typography,
+            theme foundation, and utilities.
+   ======================================== */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Lora', serif;
+  color: #e8dcca;
+  background: #0b0f0a;
+  min-height: 100vh;
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* ===============================
+   GLOBAL REALM BUTTON
+   General exploration / page buttons
+   =============================== */
+
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.25rem;
+  border: 2px solid #00ffe0;
+  border-radius: 10px;
+  background: rgba(10, 10, 25, 0.9);
+  color: #00ffe0;
+  font-family: "Cinzel", serif;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 0 0 12px rgba(0, 255, 224, 0.45);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+}
+
+.btn:hover {
+  background: rgba(0, 255, 224, 0.12);
+  transform: translateY(-2px);
+  box-shadow: 0 0 22px rgba(0, 255, 224, 0.75);
+}
+
+/* ===============================
+   GLOBAL SCROLL BUTTON
+   Ceremonial scroll / form buttons
+   =============================== */
+
+.scroll-btn {
+  display: inline-block;
+  padding: 0.75rem 1.25rem;
+  border: 2px solid #00ffe0;
+  border-radius: 10px;
+  background: rgba(10, 10, 25, 0.9);
+  color: #00ffe0;
+  font-family: "Cinzel", serif;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 0 0 12px rgba(0, 255, 224, 0.45);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+}
+
+.scroll-btn:hover {
+  background: rgba(0, 255, 224, 0.12);
+  transform: translateY(-2px);
+  box-shadow: 0 0 22px rgba(0, 255, 224, 0.75);
+}

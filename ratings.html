@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ratings | Sword & Board</title>
+
+    <!-- ========================================
+         FILE: ratings.html
+         LOCATION: project root folder
+         PURPOSE: Guest ratings page for Sword & Board.
+                  - Guests can submit a rating
+                  - Existing ratings display below
+                  - New ratings appear live at the top
+                  - Confirmation window appears after submit
+         ======================================== -->
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Cinzel:wght@400;700;900&family=Cinzel+Decorative:wght@700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- External stylesheets -->
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/layout.css" />
+    <link rel="stylesheet" href="css/raven.css" />
+    <link rel="stylesheet" href="css/ratings.css" />
+    <link rel="stylesheet" href="css/component.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+    <script src="js/common.js" defer></script>
+    <script src="js/ratings.js" defer></script>
+  </head>
+
+  <body>
+    <!-- ========================================
+         SECTION: Navigation Header
+         PURPOSE: Main site navigation
+         ======================================== -->
+    <header>
+      <nav class="container">
+        <div class="logo">Sword &amp; Board</div>
+        <button class="hamburger" aria-label="Toggle navigation">☰</button>
+        <div class="nav-links">
+          <a href="index.html">Home</a>
+          <a href="rooms/rangersroost.html">Ranger's Roost</a>
+          <a href="rooms/wizardstower.html">Wizard's Tower</a>
+          <a href="events/events.html">Events</a>
+          <a href="contacts.html">Send Raven</a>
+          <a href="calculator.html">Pricing</a>
+          <a href="ratings.html">Ratings</a>
+          <a href="store.html">The Arcanium</a>
+        </div>
+      </nav>
+    </header>
+
+    <!-- ========================================
+         SECTION: Ratings Form
+         LOCATION: Main page content
+         PURPOSE: Allows guests to submit a rating
+                  for a room and leave comments
+         ======================================== -->
+    <section class="container">
+      <div class="parchment-scroll">
+        <div class="ratings-card">
+          <h2>Leave a Rating</h2>
+          <div class="ratings-intro-box">
+            <p class="ratings-intro">
+              Share your tale of comfort, charm, and adventure at Sword &amp;
+              Board.
+            </p>
+          </div>
+
+          <!-- FORM:
+               JS will read this form on submit,
+               add the new rating to the top of the list,
+               and show the confirmation window -->
+          <form id="ratingForm" class="raven-form">
+            <label for="guestName">Name:</label>
+            <input
+              type="text"
+              id="guestName"
+              name="guestName"
+              placeholder="Enter your name"
+              required
+            />
+
+            <label for="roomRated">Room:</label>
+            <select id="roomRated" name="roomRated" required>
+              <option value="">Choose a room</option>
+              <option value="The Wizard's Tower">The Wizard's Tower</option>
+              <option value="Ranger's Roost">Ranger's Roost</option>
+            </select>
+
+            <label for="rating">Rating:</label>
+
+            <!-- STAR RATING:
+                 JS will allow clicking stars and store the
+                 selected value inside the hidden input below -->
+            <div class="star-rating" id="starRating">
+              <span
+                data-value="5"
+                aria-label="5 stars"
+                role="button"
+                tabindex="0"
+                >★</span
+              >
+              <span
+                data-value="4"
+                aria-label="4 stars"
+                role="button"
+                tabindex="0"
+                >★</span
+              >
+              <span
+                data-value="3"
+                aria-label="3 stars"
+                role="button"
+                tabindex="0"
+                >★</span
+              >
+              <span
+                data-value="2"
+                aria-label="2 stars"
+                role="button"
+                tabindex="0"
+                >★</span
+              >
+              <span
+                data-value="1"
+                aria-label="1 star"
+                role="button"
+                tabindex="0"
+                >★</span
+              >
+            </div>
+
+            <!-- HIDDEN INPUT:
+                 Stores selected star value for JS -->
+            <input type="hidden" id="rating" name="rating" required />
+
+            <label for="comments">Comments:</label>
+            <textarea
+              id="comments"
+              name="comments"
+              placeholder="Tell us about your stay..."
+              required
+            ></textarea>
+
+            <button type="submit" class="scroll-btn">
+              Submit Your Tale ⚔️
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================
+         SECTION: Confirmation Window
+         LOCATION: Below form, above reviews
+         PURPOSE: Hidden by default.
+                  JS will show this after a form submit.
+                  Styled like your raven confirmation box.
+         ======================================== -->
+    <section class="container">
+      <div id="ratingConfirmation" class="rating-confirmation hidden">
+        <h3>Your tale has been received</h3>
+        <p id="confirmationMessage">
+          Thank you, traveler. Your review has been added to the guest records.
+        </p>
+        <button id="closeConfirmation" class="scroll-btn" type="button">
+          Close
+        </button>
+      </div>
+    </section>
+
+    <!-- ========================================
+         SECTION: Guest Reviews Display
+         LOCATION: Under the form and confirmation box
+         PURPOSE: JS will populate this area using:
+                  1. starting review array
+                  2. newly submitted reviews added live
+         ======================================== -->
+    <section class="container">
+      <div class="parchment-scroll">
+        <div class="ratings-card">
+          <h2>Guest Reviews</h2>
+          <div class="ratings-intro-box">
+            <p class="ratings-intro">
+              Tales from past adventurers who rested within our halls.
+            </p>
+          </div>
+
+          <!-- ========================================
+     SECTION: Review stats (COMBO PART 1)
+     PURPOSE:
+     - Displays total number of reviews
+     - Displays average rating
+     - Updated dynamically by JS
+     ======================================== -->
+          <div class="review-stats-box">
+            <p id="reviewCount" class="review-stat-line">Tales Recorded: 0</p>
+            <p id="averageRating" class="review-stat-line">
+              Average Rating: ☆☆☆☆☆
+            </p>
+          </div>
+
+          <!-- REVIEWS CONTAINER:
+               JS will inject review cards here -->
+          <div id="reviewsList" class="reviews-list"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================
+         SECTION: Footer
+         PURPOSE: Simple site footer
+         ======================================== -->
+    <footer>
+      <p>&copy; 2026 Sword &amp; Board B&amp;B. All rights reserved.</p>
+    </footer>
+</html>

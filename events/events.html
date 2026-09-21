@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Events - Sword & Board B&B</title>
+
+    <!-- ========================================
+       FILE: events/events.html
+       PURPOSE: Events calendar page listing TTRPG and board game gatherings.
+       ======================================== -->
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Cinzel:wght@400;700;900&family=Cinzel+Decorative:wght@700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Modular CSS -->
+    <link rel="stylesheet" href="../css/base.css" />
+    <link rel="stylesheet" href="../css/layout.css" />
+    <link rel="stylesheet" href="../css/component.css" />
+    <link rel="stylesheet" href="../css/responsive.css" />
+    <link rel="stylesheet" href="../css/events.css" />
+    <script src="../js/common.js" defer></script>
+    <script src="../js/event-map.js" defer></script>
+
+    <!-- Favicon -->
+    <link rel="icon" href="../images/favicon.svg" type="image/svg+xml" />
+  </head>
+
+  <body class="events-page">
+    <!-- ========================================
+       NAVIGATION
+       ======================================== -->
+    <header>
+      <nav class="container">
+        <a href="../index.html" class="logo">Sword & Board</a>
+        <button class="hamburger" aria-label="Toggle menu">☰</button>
+        <div class="nav-links" id="nav-links">
+          <a href="../index.html">Home</a>
+          <a href="../rooms/rangersroost.html">Ranger's Roost</a>
+          <a href="../rooms/wizardstower.html">Wizard's Tower</a>
+          <a href="../events/events.html">Events</a>
+          <a href="../contacts.html">Send Raven</a>
+          <a href="../calculator.html">Pricing</a>
+          <a href="../ratings.html">Ratings</a>
+          <a href="../store.html">The Arcanium</a>
+        </div>
+      </nav>
+    </header>
+
+    <!-- ========================================
+       HERO
+       ======================================== -->
+    <section
+      class="hero"
+      style="
+        background:
+          linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+          url(&quot;../images/herobg.jpg&quot;) center/cover no-repeat;
+      "
+    >
+      <div class="container text-center">
+        <h1>Legendary Events</h1>
+        <p>Roll for initiative. Join the campaign. Live the tale.</p>
+      </div>
+    </section>
+
+    <!-- ========================================
+       EVENTS GRID
+       ======================================== -->
+    <section class="container">
+      <h2 class="text-center">Upcoming Quests & Gatherings</h2>
+
+      <div class="card-grid">
+        <!-- EVENT 1 -->
+        <div class="card">
+          <img src="../images/frontpageimage.jpg" alt="Event scene" />
+          <div class="card-body">
+            <h3>Critical Campaign Night</h3>
+            <p><strong>Date:</strong> Every Friday, 7:00 PM</p>
+            <p><strong>Location:</strong> The War Room</p>
+            <p>
+              Join rotating DMs for epic one-shots. Dice, snacks, and mead
+              provided.
+            </p>
+            <a href="../contacts.html" class="btn">RSVP</a>
+          </div>
+        </div>
+
+        <!-- EVENT 2 -->
+        <div class="card">
+          <img src="../images/bgb.jpg" alt="Board games" />
+          <div class="card-body">
+            <h3>Board Game Bonanza</h3>
+            <p><strong>Date:</strong> 2nd Saturday Monthly, 3:00 PM</p>
+            <p><strong>Location:</strong> Hearth Hall</p>
+            <p>Open play, tournaments, and demos. All levels welcome.</p>
+            <a href="../contacts.html" class="btn">Join the Guild</a>
+          </div>
+        </div>
+
+        <!-- EVENT 3 -->
+        <div class="card">
+          <img src="../images/hearthhall.jpg" alt="Fireside event" />
+          <div class="card-body">
+            <h3>Fireside Lore & Libations</h3>
+            <p><strong>Date:</strong> Last Sunday Monthly, 8:00 PM</p>
+            <p><strong>Location:</strong> Hearth Hall</p>
+            <p>Stories, drinks, and a roaring fire.</p>
+            <a href="../contacts.html" class="btn">Reserve a Seat</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================
+       PRIVATE EVENTS
+       ======================================== -->
+    <section class="amenities">
+      <div class="container">
+        <h2 class="text-center">Host Your Own Quest</h2>
+        <p class="text-center" style="max-width: 700px; margin: 2rem auto">
+          Book the <strong>War Room</strong> or <strong>Hearth Hall</strong> for
+          private events.
+        </p>
+
+        <p class="text-center">
+          <a href="../contacts.html" class="btn">
+            Inquire About Private Events
+          </a>
+        </p>
+      </div>
+    </section>
+
+    <!-- ========================================
+      EVENT LOCATION MAP
+      ======================================== -->
+    <section class="container">
+      <h2 class="text-center">Find the Gathering Hall</h2>
+      <p class="text-center">
+        All roads lead to our legendary meeting grounds.
+      </p>
+
+      <div id="event-map" class="event-map"></div>
+
+      <p class="text-center">
+        <a
+          class="btn"
+          href="https://www.google.com/maps/search/?api=1&query=Medieval%20Times%20Dinner%20%26%20Tournament%2C%20Dallas%2C%20TX"
+          target="_blank"
+        >
+          Open in Google Maps
+        </a>
+      </p>
+    </section>
+
+    <!-- ========================================
+       FOOTER
+       ======================================== -->
+    <footer>
+      <div class="container">
+        <p><a href="../index.html">Back to Home</a></p>
+        Copyright &copy; 2025<br />
+        <a href="mailto:mcray22@amarillocollege.com">Michael Ray</a>
+      </div>
+    </footer>
+
+    <script src="../js/script.js"></script>
+    <script src="../js/event-map.js"></script>
+
+    <script
+      async
+      defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCCHYQTzbnGfmpK3vTV-IvHOqD-QA5_dwc&callback=initEventMap"
+    ></script>
+  </body>
+</html>
+```
+<!-- ========================================
+     PROJECT MAP
+     project_mray/
+     ├── ratings.html
+     ├── index.html
+     ├── contacts.html
+     ├── calculator.html
+     ├── css/
+     │   ├── base.css
+     │   ├── layout.css
+     │   └── responsive.css
+     ├── events/
+     │   └── events.html ← You are here
+     ├── images/
+     ├── rooms/
+     │   └── rangersroost.html
+     │   └── wizardstower.html 
+     ======================================== -->
+```

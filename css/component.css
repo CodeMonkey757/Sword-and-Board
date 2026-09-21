@@ -1,0 +1,67 @@
+/* ===============================
+   GLOBAL CARD SYSTEM
+   Used for content blocks across Sword & Board
+   =============================== */
+
+.card,
+.realm-card,
+.feature-card,
+.product-card,
+.room-card {
+  background: rgba(15, 15, 30, 0.88);
+  border: 1px solid rgba(0, 255, 224, 0.45);
+  border-radius: 18px;
+  padding: 1.5rem;
+  box-shadow: 0 0 18px rgba(0, 255, 224, 0.22);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover,
+.realm-card:hover,
+.feature-card:hover,
+.product-card:hover,
+.room-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 28px rgba(0, 255, 224, 0.42);
+}
+
+/* ===============================
+   GLOBAL TITLE SYSTEM
+   Makes page headings feel unified
+   =============================== */
+
+.realm-title {
+  font-family: "Cinzel Decorative", serif;
+  text-align: center;
+  font-size: clamp(2rem, 5vw, 4rem);
+  color: #00ffe0;
+  text-shadow: 0 0 12px rgba(0, 255, 224, 0.8);
+  margin-bottom: 1rem;
+}
+
+.realm-subtitle {
+  font-family: "Cinzel", serif;
+  text-align: center;
+  font-size: clamp(1rem, 2.5vw, 1.35rem);
+  color: #f5e6c8;
+  max-width: 850px;
+  margin: 0 auto 2rem;
+  line-height: 1.7;
+}
+
+
+/* ===============================
+   GLOBAL SECTION SPACING
+   =============================== */
+
+.realm-section {
+  width: min(1100px, 92%);
+  margin: 0 auto;
+  padding: 3rem 0;
+}
+
+.realm-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}

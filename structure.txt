@@ -1,0 +1,27 @@
+<Text File for Structure Map>
+< AKA The Fabled Map of knowledge >
+
+<!-- So you think you're alone in this wasteland? Don't worry I got you, heres my map 
+This is my map to help show where you are and where other files are incase links get broken or something gets messed up
+project_mray/
+├── index.html          
+├── contact.html
+├── calculator.html
+├── css/
+│   └── style.css
+├── events/
+│   └── events.html
+├──images/
+│   └── logo.gif
+│	└── scenery.jpg
+├── rooms/
+│	└──	room1.html
+│	└── room2.html
+├── screenshots/
+├── structure.txt             ← You are here
+	
+-->
+
+
+
+MAKE A FUCKING LOGO YOU TWAT!!! it should be  a sword and shield

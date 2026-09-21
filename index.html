@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sword & Board</title>
+
+    <!-- ========================================
+       FILE: index.html
+       PURPOSE: Landing page for Sword & Board – a mountain lodge themed for TTRPG gamers.
+                Showcases hero banner, navigation, room previews, amenities, and footer.
+       ======================================== -->
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Lora (body), Cinzel (headings), Cinzel Decorative (logos/ornate text) -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Cinzel:wght@400;700;900&family=Cinzel+Decorative:wght@700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- External stylesheets – shared site styling only -->
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/layout.css" />
+    <link rel="stylesheet" href="css/component.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+    <script src="js/common.js" defer></script>
+
+    <!-- Favicon – appears in browser tab -->
+    <link rel="icon" href="images/favicon.svg" type="image/svg+xml" />
+  </head>
+
+  <body>
+    <!-- ========================================
+       SECTION: Hero Banner
+       PURPOSE: Full-screen visual hook with logo, tagline, and primary CTAs.
+       ======================================== -->
+    <section class="index-hero">
+      <div class="hero-content">
+        <h1 class="logo">Sword & Board</h1>
+        <p>A Mountain Lodge for Heroes, Gamers & Storytellers</p>
+        <a href="contacts.html" class="btn scroll-btn">Book Your Quest</a>
+        <a href="rooms/rangersroost.html" class="btn scroll-btn"
+          >Explore Chambers</a
+        >
+      </div>
+    </section>
+
+    <!-- ========================================
+       SECTION: Navigation Header
+       PURPOSE: Sticky top nav with logo, and site links.
+       ======================================== -->
+    <header>
+      <nav class="container">
+        <div class="logo">Sword & Board</div>
+        <button class="hamburger" aria-label="Toggle menu">☰</button>
+        <div class="nav-links" id="nav-links">
+          <a href="index.html">Home</a>
+          <a href="rooms/rangersroost.html">Ranger's Roost</a>
+          <a href="rooms/wizardstower.html">Wizard's Tower</a>
+          <a href="events/events.html">Events</a>
+          <a href="contacts.html">Send Raven</a>
+          <a href="calculator.html">Pricing</a>
+          <a href="ratings.html">Ratings</a>
+          <a href="store.html">The Arcanium</a>
+        </div>
+      </nav>
+    </header>
+
+    <!-- ========================================
+       SECTION: Room Preview Cards
+       PURPOSE: Grid of 3 featured areas with image, title, and short description.
+                Links to full room pages are in nav (not here).
+       ======================================== -->
+    <section class="container">
+      <h2 class="text-center">Your Adventure Begins</h2>
+      <div class="card-grid">
+        <div class="card">
+          <img
+            src="images/rangerroom.jpg"
+            alt="Luxurious Suite with King Bed and Mountain side view"
+          />
+          <div class="card-body">
+            <h3>Ranger's Roost</h3>
+            <p>Game cabinet, king bed, mountain view.</p>
+          </div>
+        </div>
+        <div class="card">
+          <img
+            src="images/warroom.jpg"
+            alt="Gameroom with TTRPG and Video Games fusion"
+          />
+          <div class="card-body">
+            <h3>War Room</h3>
+            <p>12 ft oak table, terrain, GM screen.</p>
+          </div>
+        </div>
+        <div class="card">
+          <img
+            src="images/hearthhall.jpg"
+            alt="Great Hall for Storytelling and Celebration!"
+          />
+          <div class="card-body">
+            <h3>Hearth Hall</h3>
+            <p>Fireplace, mead, storytelling.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================
+       SECTION: Amenities List ("The Armory")
+       PURPOSE: Bullet list of key lodge features using inline SVG icons.
+                Each <li> pairs an icon with a bold title and short blurb.
+       ======================================== -->
+    <section class="amenities">
+      <div class="container">
+        <h2 class="text-center">The Armory</h2>
+        <ul>
+          <li>
+            <!-- SVG: Shield icon -->
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z"
+              />
+            </svg>
+            <div><strong>Grand War Room</strong> – 12 ft table</div>
+          </li>
+          <li>
+            <!-- SVG: Gamepad icon -->
+            <svg viewBox="0 0 24 24">
+              <path d="M3 3h18v18H3zM10 17l5-5-5-5v10z" />
+            </svg>
+            <div><strong>Arcade Vault</strong> – Retro games</div>
+          </li>
+          <li>
+            <!-- SVG: Checkmark circle icon -->
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+              />
+            </svg>
+            <div><strong>Hearth Hall</strong> – Fireside stories</div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ========================================
+       SECTION: Footer
+       PURPOSE: Simple copyright + contact email link.
+       ======================================== -->
+    <footer>
+      Copyright © 2025<br />
+      <a href="mailto:mcray22@amarillocollege.com">Michael Ray</a>
+    </footer>
+
+    <!-- ========================================
+       PROJECT MAP (for dev reference – can be removed in production)
+       project_mray/
+       ├── ratings.html
+       ├── index.html ← You are here
+       ├── contacts.html
+       ├── calculator.html
+       ├── css/
+       │   ├── base.css
+       │   ├── layout.css
+       │   └── responsive.css
+       ├── events/
+       │   └── events.html
+       ├── images/
+       │   └── logo.gif
+       │   └── scenery.jpg
+       ├── rooms/
+       │   └── rangersroost.html
+       │   └── wizardstower.html
+       ├── screenshots/
+       └── structure.txt
+       ======================================== -->
+    <script src="js/script.js"></script>
+  </body>
+</html>
+```

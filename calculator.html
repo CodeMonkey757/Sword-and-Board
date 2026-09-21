@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quest Cost Calculator – Sword & Board</title>
+
+    <!-- ========================================
+       FILE: calculator.html
+       PURPOSE: Calculates stay cost based on room,
+                dates, guests, packages, and discounts.
+       ======================================== -->
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Cinzel:wght@400;700;900&family=Cinzel+Decorative:wght@700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- External stylesheets -->
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/layout.css" />
+    <link rel="stylesheet" href="css/raven.css" />
+    <link rel="stylesheet" href="css/calculator.css" />
+    <link rel="stylesheet" href="css/component.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+    <script src="js/common.js" defer></script>
+    <script src="js/calculator.js" defer></script>
+
+    <!-- Favicon -->
+    <link rel="icon" href="images/favicon.svg" type="image/svg+xml" />
+  </head>
+
+  <body>
+    <!-- ========================================
+       SECTION: Navigation Header
+       ======================================== -->
+    <header>
+      <nav class="container">
+        <a href="index.html" class="logo">Sword & Board</a>
+        <button class="hamburger" aria-label="Toggle menu">☰</button>
+        <div class="nav-links" id="nav-links">
+          <a href="index.html">Home</a>
+          <a href="rooms/rangersroost.html">Ranger's Roost</a>
+          <a href="rooms/wizardstower.html">Wizard's Tower</a>
+          <a href="events/events.html">Events</a>
+          <a href="contacts.html">Send Raven</a>
+          <a href="calculator.html">Pricing</a>
+          <a href="ratings.html">Ratings</a>
+          <a href="store.html">The Arcanium</a>
+        </div>
+      </nav>
+    </header>
+
+    <!-- ========================================
+       SECTION: Calculator Form
+       PURPOSE: User inputs to calculate stay cost
+       ======================================== -->
+    <section class="container">
+      <h2 class="text-center" style="font-size: 3rem; margin-bottom: 2rem">
+        Quest Cost Calculator
+      </h2>
+
+      <div class="parchment-scroll calculator-shell">
+        <form id="calculator-form" class="raven-form">
+          <!-- Room selection -->
+          <div class="form-group">
+            <label for="room">Choose Your Chamber</label>
+            <select id="room">
+              <option value="150">Ranger's Roost - $150 USD/night</option>
+              <option value="200">Wizard's Tower - $200 USD/night</option>
+            </select>
+          </div>
+
+          <!-- Dates -->
+          <div class="form-grid-dates">
+            <div class="form-group">
+              <label for="checkin">Arrival Date</label>
+              <input type="date" id="checkin" required />
+            </div>
+
+            <div class="form-group">
+              <label for="checkout">Departure Date</label>
+              <input type="date" id="checkout" required />
+            </div>
+          </div>
+
+          <!-- Guests + discount -->
+          <div class="form-grid-dates">
+            <div class="form-group">
+              <label for="guests">Extra Guests</label>
+              <input type="number" id="guests" min="0" value="0" />
+            </div>
+
+            <div class="form-group">
+              <label for="discount">Discount Code</label>
+              <input type="text" id="discount" placeholder="Try: DRAGON10" />
+            </div>
+          </div>
+
+          <!-- Package option -->
+          <div class="form-group checkbox-group">
+            <label class="checkbox-label">
+              <input type="checkbox" id="weekendUpgrade" />
+              Weekend Feast Package (+$50 USD)
+            </label>
+          </div>
+
+          <!-- Submit -->
+          <button type="submit" class="btn scroll-btn">
+            ✦ Reveal My Total ✦
+          </button>
+        </form>
+
+        <!-- ========================================
+           SECTION: Calculator Results
+           PURPOSE: Displays computed totals
+           ======================================== -->
+        <div id="result" class="calculator-result hidden">
+          <h3>Your Tavern Ledger</h3>
+          <p id="stayNights"></p>
+          <p id="roomSubtotal"></p>
+          <p id="guestFee"></p>
+          <p id="seasonFee"></p>
+          <p id="packageFee"></p>
+          <p id="discountAmount"></p>
+          <p id="taxAmount"></p>
+          <h3 id="grandTotal"></h3>
+
+          <!-- CTA -->
+          <a href="contacts.html" class="book-btn" id="bookBtn">
+            ⚔️ Book This Quest!
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================
+       SECTION: Footer
+       ======================================== -->
+    <footer>
+      Copyright &copy; 2025<br />
+      <a href="mailto:mcray22@amarillocollege.com">Michael Ray</a>
+    </footer>
+  </body>
+</html>
+
+<!-- ========================================
+     PROJECT MAP (dev reference – safe to remove in production)
+     project_mray/
+     ├── ratings.html
+     ├── index.html
+     ├── contacts.html
+     ├── calculator.html ← You are here
+     ├── css/
+     │   ├── base.css
+     │   ├── layout.css
+     │   ├── raven.css
+     │   ├── calculator.css
+     │   └── responsive.css
+     ├── events/
+     │   └── events.html
+     ├── images/
+     ├── rooms/
+     │   └── rangersroost.html
+     │   └── wizardstower.html
+     └── structure.txt
+     ======================================== -->
+```
