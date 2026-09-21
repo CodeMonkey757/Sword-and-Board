@@ -1,108 +1,134 @@
 /* =====================================================
    FILE: js/gallery.js
-   PURPOSE: Controls the interactive room gallery
-            for the Sword & Board room pages.
+   PURPOSE: Powers the Wizard's Tower photo gallery —
+            thumbnail swap for the featured image/caption,
+            plus a click-to-enlarge lightbox with
+            prev/next navigation.
 
-            JavaScript updates the main display image
-            when users interact with gallery thumbnails
-            or navigation controls.
-===================================================== */
-
-
-/* =====================================================
-   GALLERY IMAGE DATA
-   Stores all gallery image paths in an array so the
-   gallery can be managed from one central location.
-===================================================== */
-
-const galleryImages = [
-  "images/wizard1.jpg",
-  "images/wizard2.jpg",
-  "images/wizard3.jpg",
-  "images/wizard4.jpg",
-  "images/wizard5.jpg",
-  "images/wizard6.jpg"
-];
-
-
-/* =====================================================
-   CURRENT IMAGE TRACKING
-   Keeps track of which image is currently displayed.
-===================================================== */
-
-let currentImageIndex = 0;
-
-
-/* =====================================================
-   DISPLAY MAIN IMAGE
-   Updates the featured gallery image dynamically.
-===================================================== */
-
-function displayMainImage(index) {
-
-  const mainImage = document.getElementById("main-room-image");
-
-  // Safety check
-  if (!mainImage) return;
-
-  mainImage.src = galleryImages[index];
-
-  currentImageIndex = index;
-}
-
-
-/* =====================================================
-   NEXT IMAGE
-   Moves forward through the gallery images.
-   Loops back to the beginning when reaching the end.
-===================================================== */
-
-function nextImage() {
-
-  currentImageIndex++;
-
-  if (currentImageIndex >= galleryImages.length) {
-    currentImageIndex = 0;
-  }
-
-  displayMainImage(currentImageIndex);
-}
-
-
-/* =====================================================
-   PREVIOUS IMAGE
-   Moves backward through the gallery images.
-===================================================== */
-
-function previousImage() {
-
-  currentImageIndex--;
-
-  if (currentImageIndex < 0) {
-    currentImageIndex = galleryImages.length - 1;
-  }
-
-  displayMainImage(currentImageIndex);
-}
-
-
-/* =====================================================
-   THUMBNAIL INTERACTION
-   Allows users to directly select a gallery image.
+            Content (image src, alt, title, description)
+            is read directly from the thumbnail markup in
+            the HTML, so updating captions or photos only
+            requires editing the data-title / data-description
+            attributes on each thumbnail — no JS changes needed.
 ===================================================== */
 
 document.addEventListener("DOMContentLoaded", () => {
+  const mainImage = document.getElementById("main-wizard-image");
+  const titleEl = document.getElementById("wizard-image-title");
+  const textEl = document.getElementById("wizard-image-text");
+  const thumbnails = Array.from(document.querySelectorAll(".thumbnail-row img"));
 
-  const thumbnails = document.querySelectorAll(".gallery-thumb");
+  // Nothing to do if this page doesn't have the gallery markup.
+  if (!mainImage || thumbnails.length === 0) return;
 
-  thumbnails.forEach((thumbnail, index) => {
+  // Build the gallery's image list straight from the thumbnail markup.
+  const images = thumbnails.map((thumb) => ({
+    src: thumb.getAttribute("src"),
+    alt: thumb.getAttribute("alt") || "",
+    title: thumb.dataset.title || "",
+    description: thumb.dataset.description || "",
+  }));
 
-    thumbnail.addEventListener("click", () => {
+  let currentIndex = Math.max(
+    thumbnails.findIndex((t) => t.classList.contains("active-thumbnail")),
+    0
+  );
 
-      displayMainImage(index);
+  /* ---------------------------------------------------
+     FEATURED IMAGE + CAPTION
+  --------------------------------------------------- */
 
+  function setActiveImage(index) {
+    currentIndex = (index + images.length) % images.length;
+    const img = images[currentIndex];
+
+    mainImage.src = img.src;
+    mainImage.alt = img.alt;
+    if (titleEl) titleEl.textContent = img.title;
+    if (textEl) textEl.textContent = img.description;
+
+    thumbnails.forEach((thumb, i) => {
+      thumb.classList.toggle("active-thumbnail", i === currentIndex);
     });
 
+    // Keep the lightbox in sync if it's open while the user clicks thumbnails.
+    if (lightbox.classList.contains("is-open")) {
+      updateLightboxContent();
+    }
+  }
+
+  thumbnails.forEach((thumb, index) => {
+    thumb.style.cursor = "pointer";
+    thumb.addEventListener("click", () => setActiveImage(index));
   });
 
+  /* ---------------------------------------------------
+     LIGHTBOX (click the main image to enlarge)
+  --------------------------------------------------- */
+
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImage = document.getElementById("lightbox-image");
+  const lightboxTitle = document.getElementById("lightbox-title");
+  const lightboxText = document.getElementById("lightbox-description");
+  const closeBtn = document.getElementById("lightbox-close");
+  const nextBtn = document.getElementById("lightbox-next");
+  const prevBtn = document.getElementById("lightbox-prev");
+
+  if (!lightbox) return; // Lightbox markup not present on this page.
+
+  function updateLightboxContent() {
+    const img = images[currentIndex];
+    lightboxImage.src = img.src;
+    lightboxImage.alt = img.alt;
+    if (lightboxTitle) lightboxTitle.textContent = img.title;
+    if (lightboxText) lightboxText.textContent = img.description;
+  }
+
+  function openLightbox() {
+    updateLightboxContent();
+    lightbox.classList.add("is-open");
+    lightbox.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove("is-open");
+    lightbox.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+  }
+
+  mainImage.addEventListener("click", openLightbox);
+  mainImage.setAttribute("tabindex", "0");
+  mainImage.setAttribute("role", "button");
+  mainImage.setAttribute("aria-label", "Click to enlarge photo");
+  mainImage.addEventListener("keypress", (e) => {
+    if (e.key === "Enter" || e.key === " ") openLightbox();
+  });
+
+  closeBtn.addEventListener("click", closeLightbox);
+  nextBtn.addEventListener("click", () => {
+    setActiveImage(currentIndex + 1);
+    updateLightboxContent();
+  });
+  prevBtn.addEventListener("click", () => {
+    setActiveImage(currentIndex - 1);
+    updateLightboxContent();
+  });
+
+  lightbox.addEventListener("click", (e) => {
+    if (e.target === lightbox) closeLightbox();
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (!lightbox.classList.contains("is-open")) return;
+    if (e.key === "Escape") closeLightbox();
+    if (e.key === "ArrowRight") {
+      setActiveImage(currentIndex + 1);
+      updateLightboxContent();
+    }
+    if (e.key === "ArrowLeft") {
+      setActiveImage(currentIndex - 1);
+      updateLightboxContent();
+    }
+  });
 });

@@ -275,3 +275,18 @@
     line-height: 1.2;
   }
 }
+
+@media (max-width: 768px) {
+  .lightbox__close {
+    top: -2.75rem;
+    right: 0;
+  }
+
+  .lightbox__nav--prev {
+    left: 0.25rem;
+  }
+
+  .lightbox__nav--next {
+    right: 0.25rem;
+  }
+}

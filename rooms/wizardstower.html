@@ -85,7 +85,6 @@
                 alt="Arcane bedchamber with glowing runes"
                 data-title="Arcane Bedchamber"
                 data-description="A mystical sleeping space wrapped in enchanted light, ancient symbols, and the quiet promise of midnight study."
-                onclick="changeWizardImage(this)"
                 class="active-thumbnail"
               />
               <img
@@ -93,35 +92,30 @@
                 alt="Spellbound reading corner"
                 data-title="Spellbound Reading Corner"
                 data-description="A cozy corner for tomes, quiet study, and late-night planning before the next grand adventure."
-                onclick="changeWizardImage(this)"
               />
               <img
                 src="../images/wizard3.jpg"
                 alt="Alchemy-inspired interior"
                 data-title="Alchemy Chamber"
                 data-description="This view captures the tower’s potion-lab energy, blending mystery, comfort, and arcane atmosphere."
-                onclick="changeWizardImage(this)"
               />
               <img
                 src="../images/wizard4.jpg"
                 alt="Enchanted tower decor"
                 data-title="Enchanted Decor"
                 data-description="Glowing accents and magical details give the room its signature neon-gothic fantasy identity."
-                onclick="changeWizardImage(this)"
               />
               <img
                 src="../images/wizard5.jpg"
                 alt="Mage’s rest space"
                 data-title="Mage’s Rest"
                 data-description="A resting place fit for a traveling spellcaster, balancing elegance, warmth, and mystic ambiance."
-                onclick="changeWizardImage(this)"
               />
               <img
                 src="../images/wizard6.jpg"
                 alt="Wizard tower showcase"
                 data-title="Tower Showcase"
                 data-description="A full showcase of the Wizard’s Tower experience, where immersive fantasy meets stylish comfort."
-                onclick="changeWizardImage(this)"
               />
             </div>
           </div>
@@ -136,6 +130,22 @@
         </div>
       </div>
     </section>
+
+    <!-- LIGHTBOX (enlarged photo view for the gallery above) -->
+    <div class="lightbox" id="lightbox" aria-hidden="true">
+      <div class="lightbox__content">
+        <div class="lightbox__image-wrap">
+          <button class="lightbox__close" id="lightbox-close" aria-label="Close">✕</button>
+          <button class="lightbox__nav lightbox__nav--prev" id="lightbox-prev" aria-label="Previous photo">‹</button>
+          <img class="lightbox__image" id="lightbox-image" src="" alt="" />
+          <button class="lightbox__nav lightbox__nav--next" id="lightbox-next" aria-label="Next photo">›</button>
+        </div>
+        <div class="lightbox__caption">
+          <h3 id="lightbox-title"></h3>
+          <p id="lightbox-description"></p>
+        </div>
+      </div>
+    </div>
 
     <!-- FOOTER -->
     <footer>
