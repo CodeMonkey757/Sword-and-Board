@@ -85,6 +85,7 @@ header .logo {
   font-size: 1.5rem;
   color: #f4e4bc;
   text-shadow: 0 0 10px rgba(0, 255, 204, 0.4);
+   text-decoration: none;
 }
 
 .hamburger {
